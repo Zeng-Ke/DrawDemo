@@ -11,6 +11,7 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
+ * description:矩形
  */
 public class RectView extends View {
 
@@ -37,9 +38,11 @@ public class RectView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(50,100,250,300,mPaint);
+        canvas.drawRect(50, 100, 250, 300, mPaint);
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawRect(100,250,450,600,mPaint);
+        canvas.drawRect(100, 250, 450, 600, mPaint);
+        mPaint.setStyle(Paint.Style.FILL);
+        canvas.drawRoundRect(300, 300, 500, 700, 20, 20, mPaint);
 
     }
 }

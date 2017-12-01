@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,19 +12,19 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
- * description:点
+ * description:文字
  */
-public class PointView extends View {
+public class TextsView extends View {
 
     private Paint mPaint;
-    private float[] points = {10, 400, 50, 400, 90, 400, 130, 400, 170, 600, 30, 600, 70, 600};
 
-    public PointView(Context context) {
+
+    public TextsView(Context context) {
         super(context);
         initPaint();
     }
 
-    public PointView(Context context, @Nullable AttributeSet attrs) {
+    public TextsView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initPaint();
     }
@@ -33,25 +34,14 @@ public class PointView extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
-
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawPoint(50, 50, mPaint);
-
-        mPaint.setStrokeCap(Paint.Cap.BUTT);
-        canvas.drawPoint(100, 100, mPaint);
-
-        mPaint.setStrokeCap(Paint.Cap.SQUARE);
-        canvas.drawPoint(200, 200, mPaint);
-
-        mPaint.setColor(Color.GREEN);
-        canvas.drawPoints(points, mPaint);
-
+        mPaint.setTextSize(30);
+        canvas.drawText("哈哈哈哈哈哈哈哈哈哈", 100, 200, mPaint);
 
     }
+
 }

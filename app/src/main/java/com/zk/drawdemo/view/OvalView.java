@@ -11,6 +11,7 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
+ * description:椭圆
  */
 public class OvalView extends View {
 
@@ -32,8 +33,6 @@ public class OvalView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-
-
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
+ * description:圆形
  */
 public class CircleView extends View {
 

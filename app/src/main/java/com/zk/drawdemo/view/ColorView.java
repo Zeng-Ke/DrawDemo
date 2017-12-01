@@ -10,6 +10,7 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
+ * description:颜色
  */
 public class ColorView extends View {
 

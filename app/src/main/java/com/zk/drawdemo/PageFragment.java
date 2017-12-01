@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zk.drawdemo.view.BitmapView;
+
 /**
  * author: ZK.
  * date:   On 2017/11/29.
@@ -17,6 +19,8 @@ public class PageFragment extends Fragment {
 
     private static final String KEY_LAYOUT_ID = "key_layout_id";
     private int mLayoutId;
+    private boolean mIsCreated;
+    private View mView;
 
 
     public static Fragment newInstance(@LayoutRes int pageLayoutId) {
@@ -37,7 +41,9 @@ public class PageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(mLayoutId, container, false);
-        return view;
+        View mView = inflater.inflate(mLayoutId, container, false);
+        if (mView instanceof BitmapView)
+            ((BitmapView) mView).setOnClick();
+        return mView;
     }
 }

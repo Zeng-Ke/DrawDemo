@@ -11,19 +11,20 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
- * description:点
+ * description:线条
  */
-public class PointView extends View {
+public class LineView extends View {
 
     private Paint mPaint;
-    private float[] points = {10, 400, 50, 400, 90, 400, 130, 400, 170, 600, 30, 600, 70, 600};
 
-    public PointView(Context context) {
+    private float[] points = {100, 400, 300, 400, 200, 400, 200, 800, 100, 800, 600, 800};
+
+    public LineView(Context context) {
         super(context);
         initPaint();
     }
 
-    public PointView(Context context, @Nullable AttributeSet attrs) {
+    public LineView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initPaint();
     }
@@ -33,25 +34,14 @@ public class PointView extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
-
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawPoint(50, 50, mPaint);
-
-        mPaint.setStrokeCap(Paint.Cap.BUTT);
-        canvas.drawPoint(100, 100, mPaint);
-
-        mPaint.setStrokeCap(Paint.Cap.SQUARE);
-        canvas.drawPoint(200, 200, mPaint);
-
+        canvas.drawLine(100, 100, 300, 300, mPaint);
         mPaint.setColor(Color.GREEN);
-        canvas.drawPoints(points, mPaint);
-
-
+        canvas.drawLines(points, mPaint);
     }
+
 }

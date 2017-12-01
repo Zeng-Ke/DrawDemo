@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("rect", R.layout.view_rect));
         mPageModels.add(new PageModel("point", R.layout.view_point));
         mPageModels.add(new PageModel("oval", R.layout.view_oval));
+        mPageModels.add(new PageModel("line", R.layout.view_line));
+        mPageModels.add(new PageModel("Arc", R.layout.view_arc));
+        mPageModels.add(new PageModel("path", R.layout.view_path));
+        mPageModels.add(new PageModel("bitmap", R.layout.view_bitmap));
+        mPageModels.add(new PageModel("text", R.layout.view_text));
+        mPageModels.add(new PageModel("cake", R.layout.view_cake));
+        mPageModels.add(new PageModel("roate", R.layout.view_roate));
     }
 
 
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
     }
 

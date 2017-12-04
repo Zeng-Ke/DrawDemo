@@ -11,6 +11,16 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+/**
+ * author: ZK.
+ * date:   On 2017/11/29.
+ */
+
+//http://www.gcssloop.com/customview/CustomViewIndex/
+
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout mTabLayout;
@@ -31,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("text", R.layout.view_text));
         mPageModels.add(new PageModel("cake", R.layout.view_cake));
         mPageModels.add(new PageModel("roate", R.layout.view_roate));
+        mPageModels.add(new PageModel("scale", R.layout.view_scale));
     }
 
 

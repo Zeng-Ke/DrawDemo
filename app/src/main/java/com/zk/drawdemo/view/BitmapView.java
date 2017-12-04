@@ -26,12 +26,12 @@ public class BitmapView extends View {
     private float width;
     private float height;
 
-    private Paint mPaint;
+    private Paint mCheckPaint;
     private Bitmap mBitmap;
     private int mBitmapWidth;
     private int mBitmapHeight;
     private int index = 0;
-    private boolean booleanChecked = false;
+    private boolean hasChecked = false;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -50,6 +50,7 @@ public class BitmapView extends View {
         }
     };
     private int mSingleWidth;
+    private Paint mBackgroundPaint;
 
 
     public BitmapView(Context context) {
@@ -64,14 +65,19 @@ public class BitmapView extends View {
 
 
     public void initPaint() {
-        mPaint = new Paint();
-        mPaint.setColor(Color.BLACK);
-        mPaint.setAntiAlias(true);
-        mPaint.setStrokeWidth(20);
+        mCheckPaint = new Paint();
+        mCheckPaint.setColor(Color.BLACK);
+        mCheckPaint.setAntiAlias(true);
+        mCheckPaint.setStrokeWidth(20);
         mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.check_mark);
         mBitmapWidth = mBitmap.getWidth();
         mBitmapHeight = mBitmap.getHeight();
         mSingleWidth = mBitmapWidth / 13;
+
+
+        mBackgroundPaint = new Paint();
+        mBackgroundPaint.setColor(Color.YELLOW);
+        mBackgroundPaint.setAntiAlias(true);
 
 
     }
@@ -83,26 +89,26 @@ public class BitmapView extends View {
         height = h;
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.translate(width / 2, height / 2);
+        canvas.drawCircle(mSingleWidth/2 ,mSingleWidth/2 ,mSingleWidth/2 + 30,mBackgroundPaint);
         canvas.drawBitmap(mBitmap, new Rect(mSingleWidth * index, 0, mSingleWidth * (index + 1), mBitmapHeight), new Rect(0, 0,
-                mSingleWidth, mBitmapHeight), mPaint);
-        if (booleanChecked) {
-            if (index > 0) {
+                mSingleWidth, mBitmapHeight), mCheckPaint);
+        if (hasChecked) {
+            if (index >= 0) {
                 index--;
-                mHandler.sendEmptyMessage(0);
-            } else booleanChecked = !booleanChecked;
+            }else  hasChecked = !hasChecked;
 
         } else {
             if (index < 12) {
                 index++;
-                mHandler.sendEmptyMessage(0);
-            } else booleanChecked = !booleanChecked;
+
+            }else  hasChecked = !hasChecked;
         }
-
-
+        mHandler.sendEmptyMessage(0);
     }
 
     public void setOnClick() {
@@ -119,7 +125,7 @@ public class BitmapView extends View {
     OnClickListener mOnClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            booleanChecked = !booleanChecked;
+            hasChecked = !hasChecked;
             mHandler.sendEmptyMessage(0);
         }
     };

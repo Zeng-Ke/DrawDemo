@@ -18,10 +18,9 @@ public class RadoView extends View {
 
     public int width;
     public int height;
-    public float unitWidth = 0;//雷达网每一机横跨的宽度
+    public float unitWidth = 0;//雷达网每一级横跨的宽度
     private Paint mGraddingPaint;
     private Paint mDataPaint;
-    private int maxPoint = 6;
 
     private int[] datas;
     private String[] tags = new String[]{"物理攻击", "法术攻击", "物理防御", "法术防御", "移速", "智力"};
@@ -43,7 +42,7 @@ public class RadoView extends View {
 
     private void initPaint() {
         mGraddingPaint = new Paint();
-        mGraddingPaint.setColor(Color.parseColor("#cccccc"));
+        mGraddingPaint.setColor(Color.parseColor("#bbbbbb"));
         mGraddingPaint.setStyle(Paint.Style.STROKE);
         mGraddingPaint.setStrokeWidth(2);
         mGraddingPaint.setAntiAlias(true);
@@ -57,7 +56,7 @@ public class RadoView extends View {
         mTextPaint = new Paint();
         mTextPaint.setTextSize(18);
         mTextPaint.setAntiAlias(true);
-        mTextPaint.setColor(Color.parseColor("#cccccc"));
+        mTextPaint.setColor(Color.parseColor("#666666"));
 
         mPointPaint = new Paint();
         mPointPaint.setColor(Color.parseColor("#FF5530"));
@@ -74,7 +73,7 @@ public class RadoView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         width = w;
         height = h;
-        unitWidth = width / 15;
+        unitWidth = width / 16;
 
     }
 
@@ -114,14 +113,14 @@ public class RadoView extends View {
         }
 
         Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
-        float textHeight = fontMetrics.descent - fontMetrics.ascent;
+        float textHeight = fontMetrics.descent - fontMetrics.ascent;//获取文本的高度
 
         //画文本
         for (int i = 0; i < tags.length; i++) {
             double angle = Math.PI * i / 3;
-            if (angle >= 0 && angle <= Math.PI / 2)
+            if (angle > 0 && angle < Math.PI / 2)
                 canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth), (float) (6 * Math.sin(angle)) *
-                        unitWidth, mTextPaint);
+                        unitWidth + textHeight, mTextPaint);
             else if (angle > Math.PI / 2 && angle < Math.PI) {
                 float textWidth = mTextPaint.measureText(tags[i]);
                 canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth) - textWidth, (float) (6 * Math.sin(angle)) *
@@ -133,13 +132,16 @@ public class RadoView extends View {
             } else if (angle > Math.PI * 3 / 2 && angle < Math.PI * 2) {
                 canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth), (float) (6 * Math.sin(angle)) *
                         unitWidth - textHeight, mTextPaint);
-            } else if (angle == Math.PI / 2) {
+            } else if (angle == 0){
+                canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth) +10, (float) (6 * Math.sin(angle)) *
+                        unitWidth, mTextPaint);
+            }else if (angle == Math.PI / 2) {
                 float textWidth = mTextPaint.measureText(tags[i]);
                 canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth) - textWidth / 2, (float) (6 * Math.sin(angle)) *
                         unitWidth + textHeight, mTextPaint);
             } else if (angle == Math.PI) {
                 float textWidth = mTextPaint.measureText(tags[i]);
-                canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth) - textWidth, (float) (6 * Math.sin(angle)) *
+                canvas.drawText(tags[i], (float) (6 * Math.cos(angle) * unitWidth) - textWidth-10, (float) (6 * Math.sin(angle)) *
                         unitWidth, mTextPaint);
             } else if (angle == Math.PI * 3 / 2) {
                 float textWidth = mTextPaint.measureText(tags[i]);

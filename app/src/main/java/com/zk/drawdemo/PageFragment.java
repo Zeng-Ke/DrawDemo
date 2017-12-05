@@ -42,8 +42,6 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View mView = inflater.inflate(mLayoutId, container, false);
-        if (mView instanceof BitmapView)
-            ((BitmapView) mView).setOnClick();
         return mView;
     }
 }

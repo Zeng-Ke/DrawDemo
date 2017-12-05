@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("cake", R.layout.view_cake));
         mPageModels.add(new PageModel("roate", R.layout.view_roate));
         mPageModels.add(new PageModel("scale", R.layout.view_scale));
+        mPageModels.add(new PageModel("rado", R.layout.view_rado));
     }
 
 

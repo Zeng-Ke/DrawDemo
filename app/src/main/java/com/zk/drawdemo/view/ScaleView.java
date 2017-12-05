@@ -16,15 +16,13 @@ import android.view.View;
  * author: ZK.
  * date:   On 2017/11/29.
  * description:图片
- *
- *
+ * <p>
+ * <p>
  * public void scale (float sx, float sy)
- *
+ * <p>
  * public final void scale (float sx, float sy, float px, float py)
- *
- *这两个方法中前两个参数是相同的分别为x轴和y轴的缩放比例。而第二种方法比前一种多了两个参数，用来控制缩放中心位置的。
- *
- *
+ * <p>
+ * 这两个方法中前两个参数是相同的分别为x轴和y轴的缩放比例。而第二种方法比前一种多了两个参数，用来控制缩放中心位置的。
  */
 public class ScaleView extends View {
 
@@ -34,7 +32,8 @@ public class ScaleView extends View {
     private Paint mPaint;
     private float scaleWidth = 0;
     private boolean isZoomOut = false;//是否在缩小
-    private  int roateAngle = 0;
+    private int roateAngle = 0;
+    int n = 0;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -106,10 +105,8 @@ public class ScaleView extends View {
             if (scaleWidth > width - 10)
                 isZoomOut = true;//达到最大值，改为缩小状态
         }
-
         mHandler.sendEmptyMessage(0);
     }
-
 
 
     @Override

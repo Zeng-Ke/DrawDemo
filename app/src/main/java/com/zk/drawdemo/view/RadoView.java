@@ -83,7 +83,7 @@ public class RadoView extends View {
         canvas.translate(width / 2, height / 2);
 
         Path path = new Path();
-        //画雷达网
+        //画雷达网.每60度地画一个区域，一个区域在画6级线。然后旋转60度再画下一个区域
         for (int i = 0; i < 6; i++) {
             for (int j = 1; j < 7; j++) {
                 path.lineTo(unitWidth * j, 0);

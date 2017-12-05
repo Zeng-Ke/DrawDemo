@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("roate", R.layout.view_roate));
         mPageModels.add(new PageModel("scale", R.layout.view_scale));
         mPageModels.add(new PageModel("rado", R.layout.view_rado));
+        mPageModels.add(new PageModel("二阶贝塞尔", R.layout.view_bezier_two_level));
     }
 
 

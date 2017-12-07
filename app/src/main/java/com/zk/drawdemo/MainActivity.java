@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 /**
  * author: ZK.
  * date:   On 2017/11/29.
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("scale", R.layout.view_scale));
         mPageModels.add(new PageModel("rado", R.layout.view_rado));
         mPageModels.add(new PageModel("二阶贝塞尔", R.layout.view_bezier_two_level));
+        mPageModels.add(new PageModel("粘性球", R.layout.view_sticky));
     }
 
 

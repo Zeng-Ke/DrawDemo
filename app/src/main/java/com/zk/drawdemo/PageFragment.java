@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.zk.drawdemo.view.BitmapView;
+import com.zk.drawdemo.view.MagicCircle;
 
 /**
  * author: ZK.
@@ -42,6 +44,11 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View mView = inflater.inflate(mLayoutId, container, false);
+        if (mView instanceof MagicCircle){
+            MagicCircle magicCircle = (MagicCircle) mView;
+            magicCircle.startAnimation();
+        }
         return mView;
     }
+
 }

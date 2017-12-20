@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("rado", R.layout.view_rado));
         mPageModels.add(new PageModel("二阶贝塞尔", R.layout.view_bezier_two_level));
         mPageModels.add(new PageModel("粘性球", R.layout.view_sticky));
+        mPageModels.add(new PageModel("MagicCircle", R.layout.view_magic));
+        mPageModels.add(new PageModel("SrearchView", R.layout.view_search));
     }
 
 

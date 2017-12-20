@@ -17,7 +17,7 @@ import java.util.List;
  * date:   On 2017/11/29.
  */
 
-//http://www.gcssloop.com/customview/CustomViewIndex/
+//from： http://www.gcssloop.com/customview/CustomViewIndex/
 
 public class MainActivity extends AppCompatActivity {
 

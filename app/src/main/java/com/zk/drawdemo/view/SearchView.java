@@ -18,7 +18,7 @@ import android.view.View;
 
 
 /**
- * From:
+ * From: http://www.gcssloop.com/customview/CustomViewIndex/
  *
  */
 public class SearchView extends View {

@@ -1,4 +1,4 @@
-package com.zk.drawdemo.view;
+package com.zk.drawdemo.customview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -39,10 +39,10 @@ public class ArcView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(100, 300, 700, 400, 50, 150, false, mPaint);
+        canvas.drawArc(100, 300, 300, 500, 120, 120, false, mPaint);
 
         mPaint.setColor(Color.RED);
-        canvas.drawArc(new RectF(100, 700, 500, 800), 50, 150, true, mPaint);
+        canvas.drawArc(new RectF(100, 400, 500, 800), 90, 180, true, mPaint);
 
         mPaint.setColor(Color.BLUE);
         canvas.drawArc(100, 0, 300, 200, 0, 90, true, mPaint);

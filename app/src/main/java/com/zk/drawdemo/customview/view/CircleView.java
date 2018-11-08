@@ -1,4 +1,4 @@
-package com.zk.drawdemo.view;
+package com.zk.drawdemo.customview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

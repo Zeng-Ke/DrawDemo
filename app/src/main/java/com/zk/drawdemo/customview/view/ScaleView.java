@@ -1,4 +1,4 @@
-package com.zk.drawdemo.view;
+package com.zk.drawdemo.customview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -97,6 +97,7 @@ public class ScaleView extends View {
                 isZoomOut = false;//达到最小值，改为扩大状态
         } else {//扩大
             scaleWidth += 30;
+            roateAngle +=20;
             canvas.rotate(++roateAngle);
             while (varableWidth <= width - 10) {
                 canvas.drawRect(new RectF(varableWidth / 2 * -1, varableWidth / 2 * -1, varableWidth / 2, varableWidth / 2), mPaint);

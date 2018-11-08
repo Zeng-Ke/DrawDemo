@@ -1,4 +1,4 @@
-package com.zk.drawdemo.view;
+package com.zk.drawdemo.customview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -11,18 +11,19 @@ import android.view.View;
 /**
  * author: ZK.
  * date:   On 2017/11/29.
- * description:椭圆
+ * description:文字
  */
-public class OvalView extends View {
+public class TextsView extends View {
 
     private Paint mPaint;
 
-    public OvalView(Context context) {
+
+    public TextsView(Context context) {
         super(context);
         initPaint();
     }
 
-    public OvalView(Context context, @Nullable AttributeSet attrs) {
+    public TextsView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initPaint();
     }
@@ -32,12 +33,14 @@ public class OvalView extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawOval(100,250,400,500,mPaint);
+        mPaint.setTextSize(30);
+        canvas.drawText("哈哈哈哈哈哈哈哈哈哈", 100, 200, mPaint);
+
     }
+
 }

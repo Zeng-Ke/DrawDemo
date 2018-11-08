@@ -1,4 +1,4 @@
-package com.zk.drawdemo;
+package com.zk.drawdemo.customview;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.zk.drawdemo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private List<PageModel> mPageModels = new ArrayList<>();
 
     {
+        mPageModels.add(new PageModel("progress", R.layout.view_progress));
         mPageModels.add(new PageModel("color", R.layout.view_color));
         mPageModels.add(new PageModel("circle", R.layout.view_circle));
         mPageModels.add(new PageModel("rect", R.layout.view_rect));
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mPageModels.add(new PageModel("粘性球", R.layout.view_sticky));
         mPageModels.add(new PageModel("MagicCircle", R.layout.view_magic));
         mPageModels.add(new PageModel("SrearchView", R.layout.view_search));
+
     }
 
 
